@@ -4,8 +4,8 @@ A full-stack web app that lets parents and legal guardians keep track of their c
 
 Built for the **Web Technologies** course (Year 2, Faculty of Computer Science, Alexandru Ioan Cuza University of Iași) by a team of two. The course required no frameworks, so everything is plain HTML, CSS and JavaScript on top of Node.js's built-in `http` module.
 
-- **Marian Ciotir** ([@Mareantz](https://github.com/Mareantz)): frontend lead (dashboard, login and registration flows, calendar, media and data views), plus work on the backend API and SQL integration.
-- **Dennis Nița** ([@txospitikun](https://github.com/txospitikun)): backend lead.
+- **Marian Ciotir** ([@Mareantz](https://github.com/Mareantz)): focused on the frontend (dashboard, login and registration flows, calendar, media and data views), with work also on the backend API and SQL integration.
+- **Dennis Nița** ([@txospitikun](https://github.com/txospitikun)): focused on the backend.
 
 Original repository: [txospitikun/WEB-Nita-Dennis-Alexandru-2E2](https://github.com/txospitikun/WEB-Nita-Dennis-Alexandru-2E2).
 
