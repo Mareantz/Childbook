@@ -1,16 +1,60 @@
-# WEB Technologies 
+# Childbook: Childcare Manager
 
-**Year 2 - Semester 2 - UAIC FII**
-<a href="https://edu.info.uaic.ro/web-technologies/">Course Description</a>
+A full-stack web app that lets parents and legal guardians keep track of their children's daily lives: feeding and sleep schedules, medical records, and photos and videos, all in one place.
 
-The course required a full-stack application (vanilla HTML/CSS + JS & node.js) that could allow some parents or legal guardians to record different things about their children. (feeding/sleeping times, semnificative photos and recordings and so on).
+Built for the **Web Technologies** course (Year 2, Faculty of Computer Science, Alexandru Ioan Cuza University of Iași) by a team of two. The course required no frameworks, so everything is plain HTML, CSS and JavaScript on top of Node.js's built-in `http` module.
 
-The project was made in cooperation with another colleague @meareantz. I have focused on the backend primary, but our tasks were splitted so we had to tip our toes in every technology of the project.
+- **Marian Ciotir** ([@Mareantz](https://github.com/Mareantz)): frontend lead (dashboard, login and registration flows, calendar, media and data views), plus work on the backend API and SQL integration.
+- **Dennis Nița** ([@txospitikun](https://github.com/txospitikun)): backend lead.
 
+Original repository: [txospitikun/WEB-Nita-Dennis-Alexandru-2E2](https://github.com/txospitikun/WEB-Nita-Dennis-Alexandru-2E2).
 
+## Features
 
+- Account registration and login with JWT-based sessions
+- Child profiles, which can be organized into groups
+- Feeding and sleep logs, browsable by date in a calendar view
+- Photo and video uploads per child
+- Medical records per child, filterable by category
+- Data export as JSON
+- Admin panel for managing users
 
-# API Examples + SQL Format
+## Tech stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | Vanilla HTML, CSS, JavaScript |
+| Backend | Node.js (`http` module, no Express), REST API under `/api` |
+| Database | MySQL (`mysql2` connection pool) |
+| Auth | JWT tokens stored as cookies |
+| File uploads | `formidable` |
+
+## Project structure
+
+```
+Proiect - Childcare Manager/src/
+├── frontend/          # homepage, dashboard, login/register modals
+└── backend/server/    # server.js, workers (route handlers), database/ (SQL access)
+Documentație + Diagrame - Childcare Manager/   # documentation and C4 diagrams (c1–c4)
+Video Demonstrativ/                            # demo video
+```
+
+The architecture is documented with C4 diagrams (context, containers, components) in the documentation folder, and a demo video is included.
+
+## Running locally
+
+1. Create a MySQL database named `web` and the tables described in [SQL tables](#sql-tables) below.
+2. Update the credentials in `src/backend/server/database/connection.js`.
+3. Start the server:
+   ```
+   cd "Proiect - Childcare Manager/src/backend/server"
+   npm install
+   node server.js
+   ```
+   The API listens on port 5000.
+4. Open the frontend pages from `src/frontend` in a browser.
+
+## API reference
 /api/register
 ```
 Payload:
@@ -80,7 +124,7 @@ Payload: (JWT token as cookie)
     "InsertChildrenResponse": 300
 }
 ```
-#GETS
+### GET
 
 /api/get_children // JWT token as cookie
 ```
@@ -194,7 +238,7 @@ GetFeedingEntryResponse: 301 - invalid entry id  --- STATUS: 400
 GetFeedingEntryResponse: 404 - no entries found  --- STATUS: 404
 GetFeedingEntryResponse: 1 - for backend errors  --- STATUS: 505
 ```
-# PUTS
+### PUT
 /api/edit_feeding_entry
 ```
 Payload:
@@ -215,10 +259,10 @@ EditFeedingEntryResponse: 300 if edited sucesfully
 
 ```
 
-# DELETE
+### DELETE
 /api/delete_feeding_entry?id=9
 
-# SQL Tabels:
+### SQL tables
 ```
 
 CREATE TABLE `Users` (
